@@ -14,7 +14,7 @@
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
 body{
   margin:0;
   font-family:'Inter',system-ui,sans-serif;
@@ -22,6 +22,7 @@ body{
   background:var(--cream);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  width:100%;
 }
 h1,h2,h3{font-family:'Playfair Display',serif; margin:0 0 .4em; line-height:1.15;}
 p{line-height:1.65; margin:0 0 1em; color:var(--muted);}
@@ -100,6 +101,7 @@ ul{padding:0; margin:0; list-style:none;}
 /* intro */
 .intro{padding:100px 0; background:var(--cream);}
 .intro-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:60px; align-items:center;}
+.intro-grid > *{min-width:0;}
 .intro-text h2{font-size:clamp(1.8rem,3vw,2.4rem); color:var(--navy);}
 .intro-text strong{color:var(--navy);}
 .intro-stats{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
@@ -126,6 +128,7 @@ h2.light{color:#fff;}
 /* legacy */
 .legacy{background:var(--navy); color:#fff;}
 .legacy-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:center;}
+.legacy-grid > *{min-width:0;}
 .legacy h2{color:#fff; font-size:clamp(1.9rem,3.4vw,2.5rem);}
 .legacy p{color:#c7cce0;}
 .legacy-facts li{padding:14px 0; border-bottom:1px solid rgba(255,255,255,.12); color:#dfe2ee; font-size:.95rem;}
@@ -183,11 +186,15 @@ h2.light{color:#fff;}
 /* contact */
 .contact-section{background:#fff;}
 .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+.contact-grid > *{min-width:0;}
 .contact-copy h2{color:var(--navy); font-size:clamp(1.9rem,3.4vw,2.5rem);}
 .contact-details{margin-top:30px;}
-.contact-row{display:flex; flex-direction:column; gap:4px; padding:16px 0; border-bottom:1px solid var(--cream-dark);}
+.contact-row{display:flex; flex-direction:column; gap:4px; padding:16px 0; border-bottom:1px solid var(--cream-dark); min-width:0;}
 .contact-label{font-weight:700; color:var(--navy); font-size:.8rem; text-transform:uppercase; letter-spacing:1px;}
 .contact-row a{color:var(--gold); font-weight:600;}
+.phone-list{display:flex; flex-wrap:wrap; gap:6px 14px;}
+.phone-list a{color:var(--ink); font-weight:600; white-space:nowrap;}
+.phone-list a:hover{color:var(--gold);}
 .contact-form{background:var(--cream); border-radius:var(--radius); padding:34px; border:1px solid var(--cream-dark);}
 .contact-form h3{color:var(--navy); margin-bottom:18px;}
 .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
