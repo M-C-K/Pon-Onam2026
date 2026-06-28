@@ -1,0 +1,15 @@
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+    b = p.chromium.launch()
+    page = b.new_page(viewport={'width':390,'height':844})
+    page.goto('file:///D:/Madhu/Coding/PO 2026/website/index.html')
+    page.wait_for_timeout(500)
+    page.evaluate('document.querySelector("#matrix").scrollIntoView()')
+    page.wait_for_timeout(400)
+    wrap = page.query_selector('.table-wrap')
+    box = wrap.bounding_box()
+    page.mouse.move(box['x']+box['width']/2, box['y']+50)
+    page.mouse.wheel(280, 0)
+    page.wait_for_timeout(400)
+    page.screenshot(path='matrix_check2.png')
+    b.close()
